@@ -1,0 +1,119 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+#calendar-container {
+  display: flex;
+  gap: 20px;
+}
+#calendar {
+  width: 350px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.header button:hover {
+  background-color: #0056b3;
+}
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 10px;
+}
+.days div {
+  text-align: center;
+  padding: 10px;
+  margin: 2px;
+}
+.day-names div {
+  font-weight: bold;
+}
+.day-number {
+  background-color: #007BFF;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.day-number:hover {
+  background-color: #0056b3;
+}
+.inactive {
+  color: #ccc;
+}
+.today {
+  background-color: #FF6347 !important; /* Tomate */
+  color: white !important;
+}
+
+#event-list {
+  margin-left: 20px;
+  width: 200px;
+}
+#event-list h3 {
+  text-align: center;
+}
+#events {
+  list-style: none;
+  padding: 0;
+}
+#events li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007BFF;
+  color: white;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+#events li button {
+  background-color: #dc3545;
+  border: none;
+  padding: 2px 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+}
+#events li button:hover {
+  background-color: #c82333;
+}
+#addEvent {
+  margin-top: 20px;
+}
+#addEvent input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: calc(100% - 12px);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#addEvent button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#addEvent button:hover {
+  background-color: #218838;
+}
