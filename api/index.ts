@@ -50,7 +50,7 @@ app.delete('/events', async (req, res) => {
     const { date, time, eventIndex } = req.body;
     const event = await MyEvent.findOne({ date, time });
     if (event) {
-        await event.remove();
+        await MyEvent.deleteOne({ _id: event._id });
     }
     res.json({ message: 'Evento eliminado correctamente.' });
 });
