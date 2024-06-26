@@ -4,6 +4,7 @@ import '../style.css';
 const Calendar = ({ events, onDateClick, changeMonth, currentDate }) => {
     useEffect(() => {
         renderCalendar(currentDate);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentDate, events]);
 
     useEffect(() => {
@@ -21,6 +22,7 @@ const Calendar = ({ events, onDateClick, changeMonth, currentDate }) => {
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentDate]);
 
     const renderCalendar = (date) => {
