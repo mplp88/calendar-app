@@ -47,19 +47,19 @@ app.post('/events', async (req, res) => {
 });
 
 app.delete('/events', async (req, res) => {
-    const { date, time, eventIndex } = req.body;
+    const { date, time } = req.body;
     const event = await Event.findOne({ date, time });
     if (event) {
-        await event.remove();
+        await Event.deleteOne({ _id: event._id});
     }
     res.json({ message: 'Evento eliminado correctamente.' });
 });
 
 // Servir la aplicación de React en producción
-app.use(express.static(path.join(__dirname, 'calendar-app/build')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'calendar-app/build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port, () => {
