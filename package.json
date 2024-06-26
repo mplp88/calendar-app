@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "cd calendar-app && npm install",
     "start": "node server.js",
-    "build": "cd calendar-app && npm run build && mv ./build/* ../public/",
+    "build": "bash ./build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

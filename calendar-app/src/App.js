@@ -7,6 +7,7 @@ import './style.css';
 function App() {
   const [events, setEvents] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchEvents();
@@ -14,14 +15,17 @@ function App() {
   }, [currentDate]);
 
   const fetchEvents = async () => {
+    setLoading(true);
     const month = currentDate.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
     const year = currentDate.getFullYear();
     const response = await fetch(`/events?month=${month}&year=${year}`);
     const data = await response.json();
     setEvents(data.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)));
+    setLoading(false);
   };
 
   const addEvent = async (date, time, eventName) => {
+    setLoading(true);
     const response = await fetch('/events', {
       method: 'POST',
       headers: {
@@ -36,6 +40,7 @@ function App() {
   };
 
   const deleteEvent = async (date, time, eventIndex) => {
+    setLoading(true);
     const response = await fetch('/events', {
       method: 'DELETE',
       headers: {
@@ -60,7 +65,7 @@ function App() {
           <Calendar events={events} onDateClick={() => { }} changeMonth={changeMonth} currentDate={currentDate} />
         </div>
         <div id="event-list">
-          <EventList events={events} onDeleteEvent={deleteEvent} />
+          {loading ? <p className="loading">Cargando...</p> : <EventList events={events} onDeleteEvent={deleteEvent} />}
           <EventForm onAddEvent={addEvent} />
         </div>
       </div>

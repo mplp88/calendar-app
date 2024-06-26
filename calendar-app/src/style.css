@@ -117,3 +117,9 @@ body {
 #addEvent button:hover {
   background-color: #218838;
 }
+
+p.loading {
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+}

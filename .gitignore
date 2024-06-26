@@ -130,8 +130,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-public/*
-!public/.gitkeep
-!public/static/.gitkeep
-!public/static/js/.gitkeep
-!public/static/css/.gitkeep
+public/
