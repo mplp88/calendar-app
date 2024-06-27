@@ -1,125 +1,168 @@
+/* Estilos existentes */
+
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+  min-height: 100vh;
 }
-#calendar-container {
-  display: flex;
-  gap: 20px;
-}
-#calendar {
-  width: 350px;
-  background-color: white;
+
+.App {
+  width: 80%;
+  max-width: 900px;
+  margin: 20px auto;
   padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.header {
+
+.month {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
 }
-.header button {
-  background-color: #007BFF;
-  color: white;
+
+#monthYear {
+  font-size: 1.5em;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
 }
-.header button:hover {
-  background-color: #0056b3;
+
+button:hover {
+  background: #0056b3;
 }
-.days {
+
+#calendarDays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin-top: 10px;
-}
-.days div {
-  text-align: center;
-  padding: 10px;
-  margin: 2px;
-}
-.day-names div {
-  font-weight: bold;
-}
-.day-number {
-  background-color: #007BFF;
-  color: white;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.day-number:hover {
-  background-color: #0056b3;
-}
-.inactive {
-  color: #ccc;
-}
-.today {
-  background-color: #FF6347 !important; /* Tomate */
-  color: white !important;
+  gap: 5px;
 }
 
-#event-list {
-  margin-left: 20px;
-  width: 200px;
+.day-number, .inactive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
 }
-#event-list h3 {
-  text-align: center;
+
+.day-number.today {
+  background: #007bff;
+  color: #fff;
 }
-#events {
-  list-style: none;
+
+.inactive {
+  color: #bbb;
+}
+
+form {
+  margin: 20px 0;
+}
+
+form input, form button {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  background: #28a745;
+  color: #fff;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #218838;
+}
+
+ul {
+  list-style-type: none;
   padding: 0;
 }
-#events li {
+
+li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007BFF;
-  color: white;
-  padding: 5px;
+  background: #f9f9f9;
+  padding: 10px;
   margin: 5px 0;
+  border: 1px solid #ddd;
   border-radius: 4px;
 }
-#events li button {
-  background-color: #dc3545;
-  border: none;
-  padding: 2px 5px;
-  cursor: pointer;
-  border-radius: 4px;
-  color: white;
-}
-#events li button:hover {
-  background-color: #c82333;
-}
-#addEvent {
-  margin-top: 20px;
-}
-#addEvent input {
-  display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: calc(100% - 12px);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-#addEvent button {
-  background-color: #28a745;
-  color: white;
+
+li button {
+  background: #dc3545;
+  color: #fff;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
 }
-#addEvent button:hover {
-  background-color: #218838;
+
+li button:hover {
+  background: #c82333;
 }
 
-p.loading {
+p {
   text-align: center;
   font-size: 1.2em;
   color: #333;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .App {
+      width: 95%;
+      padding: 10px;
+  }
+
+  #monthYear {
+      font-size: 1.2em;
+  }
+
+  button {
+      padding: 5px;
+  }
+
+  #calendarDays {
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+  }
+
+  .day-number, .inactive {
+      padding: 5px;
+      font-size: 0.8em;
+  }
+
+  form input, form button {
+      padding: 8px;
+  }
+
+  li {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  li button {
+      align-self: flex-end;
+      margin-top: 5px;
+  }
 }

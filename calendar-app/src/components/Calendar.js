@@ -84,12 +84,12 @@ const Calendar = ({ events, onDateClick, changeMonth, currentDate }) => {
 
     return (
         <div>
-            <div className="header">
-                <button className="prev" onClick={() => navigateMonth(-1)}>&lt;</button>
-                <h2 id="monthYear">{monthYear}</h2>
-                <button className="next" onClick={() => navigateMonth(1)}>&gt;</button>
+            <div className="month">
+                <button onClick={() => navigateMonth(-1)}>&lt;</button>
+                <div id="monthYear">{monthYear}</div>
+                <button onClick={() => navigateMonth(1)}>&gt;</button>
             </div>
-            <div className="days" id="calendarDays">{renderCalendar(currentDate)}</div>
+            <div id="calendarDays">{renderCalendar(currentDate)}</div>
         </div>
     );
 };

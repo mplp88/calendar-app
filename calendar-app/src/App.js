@@ -60,15 +60,9 @@ function App() {
 
   return (
     <div className="App">
-      <div id="calendar-container">
-        <div id="calendar">
-          <Calendar events={events} onDateClick={() => { }} changeMonth={changeMonth} currentDate={currentDate} />
-        </div>
-        <div id="event-list">
-          {loading ? <p className="loading">Cargando...</p> : <EventList events={events} onDeleteEvent={deleteEvent} />}
-          <EventForm onAddEvent={addEvent} />
-        </div>
-      </div>
+      <Calendar events={events} onDateClick={() => {}} changeMonth={changeMonth} currentDate={currentDate} />
+      <EventForm onAddEvent={addEvent} />
+      <EventList events={events} onDeleteEvent={deleteEvent} />
     </div>
   );
 }
